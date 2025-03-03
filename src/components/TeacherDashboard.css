@@ -1,0 +1,108 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff8a00, #e52e71);
+    text-align: center;
+    padding: 20px;
+}
+
+/* Dashboard Title */
+.dashboard-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 150px;
+}
+
+/* Dashboard Sections */
+.dashboard-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    width: 90%;
+    max-width: 900px;
+    margin-bottom: 110px;
+}
+
+/* Dashboard Cards */
+.dashboard-card {
+    background: white;
+    color: #333;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 42px;
+    cursor: pointer;
+}
+
+.dashboard-card:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-5px);
+}
+
+/* Colors for Different Sections */
+.children {
+    background: #ffcc00;
+    color: #333;
+}
+
+.teachers {
+    background: #4caf50;
+    color: white;
+}
+
+.parents {
+    background: #2196f3;
+    color: white;
+}
+
+.events {
+    background: #e52e71;
+    color: white;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .dashboard-title {
+        font-size: 28px;
+    }
+
+    .dashboard-sections {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .dashboard-card {
+        font-size: 18px;
+        padding: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .dashboard-title {
+        font-size: 24px;
+    }
+
+    .dashboard-card {
+        font-size: 16px;
+        padding: 14px;
+    }
+}

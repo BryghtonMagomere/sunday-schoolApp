@@ -1,0 +1,126 @@
+/* Background */
+.role-selection-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensures full page coverage */
+  width: 100vw; /* Full width */
+  background: linear-gradient(135deg, #ff8a00, #e52e71);
+  padding: 20px;
+}
+
+
+/* Card Box */
+.role-selection-card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Title & Description */
+.role-selection-card h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.role-selection-card p {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* Role Buttons */
+.role-buttons {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 15px;
+  align-items: center;
+}
+
+.role-button {
+  width: 100%;
+  max-width: 250px; /* Ensures buttons are uniform */
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
+/* Colors */
+.teacher {
+  background: #ff8a00;
+}
+
+.parent {
+  background: #4caf50;
+}
+
+.child {
+  background: #e52e71;
+}
+
+/* Hover Effects */
+.role-button:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+/* Click Effect */
+.role-button:active {
+  transform: scale(0.95);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .role-selection-card {
+    padding: 30px;
+    max-width: 350px;
+  }
+
+  .role-selection-card h2 {
+    font-size: 22px;
+  }
+
+  .role-selection-card p {
+    font-size: 14px;
+  }
+
+  .role-button {
+    font-size: 16px;
+    padding: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .role-selection-card {
+    padding: 25px;
+    max-width: 320px;
+  }
+
+  .role-selection-card h2 {
+    font-size: 20px;
+  }
+
+  .role-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

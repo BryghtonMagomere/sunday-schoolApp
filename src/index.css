@@ -1,0 +1,11 @@
+/* Ensure full height for body and html */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Allow the root app container to stretch */
+#root, .role-selection-container {
+  height: 100vh; /* Full viewport height */
+}

@@ -1,0 +1,98 @@
+/* Navbar Container */
+.navbar {
+    background: linear-gradient(135deg, #ff8a00, #e52e71);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    margin-top: 0%;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 0 20px;
+    width: 100%;
+  }
+  
+  /* Navbar Inner Container */
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  /* Logo */
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+  }
+  
+  /* Navigation Links - Horizontal by default */
+  .nav-menu {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .nav-menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 15px;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .nav-menu li a:hover {
+    color: #ffdd57;
+  }
+  
+  /* Burger Menu Icon - Hidden by Default */
+  .menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .bar {
+    background: rgb(0, 0, 0);
+    height: 4px;
+    width: 25px;
+    margin: 4px 0;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 768px) {
+    /* Show Burger Menu on Small Screens */
+    .menu-icon {
+      display: flex;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+    }
+  
+    /* Hide Navigation Links by Default on Small Screens */
+    .nav-menu {
+      position: absolute;
+      top: 70px;
+      right: 0;
+      width: 100%;
+      background: #e52e71;
+      flex-direction: column;
+      text-align: center;
+      display: none;
+      padding: 20px 0;
+    }
+  
+    .nav-menu.active {
+      display: flex;
+    }
+  
+    .nav-menu li {
+      padding: 15px 0;
+    }
+  }
+  
