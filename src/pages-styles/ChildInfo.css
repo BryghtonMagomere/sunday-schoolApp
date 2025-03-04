@@ -1,0 +1,129 @@
+/* General Container */
+.child-info-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+    background: #f4f4f9;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Section Titles */
+h2, h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Section Styling */
+section {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Inputs */
+input, select {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Buttons */
+button {
+    background: linear-gradient(135deg, #ff8a00, #e52e71);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background: linear-gradient(135deg, #e52e71, #ff8a00);
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Check-in Section */
+.search-results {
+    background: #fff3cd;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.search-results ul {
+    list-style: none;
+    padding: 0;
+}
+
+.search-results li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border-bottom: 1px solid #ddd;
+}
+
+.search-results li:hover {
+    background: #ffefb3;
+}
+
+/* Assign Card Section */
+.assign-card {
+    margin-top: 15px;
+    background: #d1ecf1;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Summary Section */
+.summary {
+    background: #c8e6c9;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.summary p {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+/* Pending Check-out List */
+.pending-checkout ul, .child-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.pending-checkout li, .child-list li {
+    padding: 10px;
+    background: #f8d7da;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    input, select {
+        max-width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+}

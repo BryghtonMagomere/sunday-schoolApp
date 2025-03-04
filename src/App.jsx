@@ -9,6 +9,7 @@ import ChildLogin from "./pages/ChildLogin"; // ✅ Child Login Import
 import TeacherDashboard from "./components/TeacherDashboard";
 import ChildDashboard from "./components/ChildDashboard"; // ✅ Import Child Dashboard
 import ParentDashboard from "./components/ParentDashboard"; // ✅ Import Parent Dashboard
+import ChildInfo from "./pages/ChildInfo"; 
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function MainApp() {
         <Route path="/teacher-dashboard" element={<TeacherDashboard />} />
         <Route path="/child-dashboard" element={<ChildDashboard />} />
         <Route path="/parent-dashboard" element={<ParentDashboard />} />
+        <Route path="/children-info" element={<ChildInfo />} />
       </Routes>
     </>
   );
