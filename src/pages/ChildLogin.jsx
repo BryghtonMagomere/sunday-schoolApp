@@ -1,12 +1,16 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../pages-styles/ChildLogin.css"; // ✅ Import CSS
 
 const ChildLogin = () => {
   const navigate = useNavigate();
+  const [username, setUsername] = useState("");
 
   const handleLogin = (e) => {
     e.preventDefault();
-    navigate("/child-dashboard"); // ✅ Instantly redirect to Child Dashboard
+
+    // In the future, we will verify the username from the database before navigating
+    navigate(`/child-dashboard?username=${username}`); // Redirect with username
   };
 
   return (
@@ -14,8 +18,13 @@ const ChildLogin = () => {
       <div className="child-login-card">
         <h2>Child Login</h2>
         <form onSubmit={handleLogin}>
-          <input type="text" placeholder="Enter Username" required />
-          <input type="text" placeholder="Enter Class" required />
+          <input
+            type="text"
+            placeholder="Enter Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
           <button type="submit">Login</button>
         </form>
       </div>

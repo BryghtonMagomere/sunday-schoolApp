@@ -6,7 +6,7 @@ const TeacherLogin = () => {
 
   const handleLogin = (e) => {
     e.preventDefault(); // Prevent page refresh
-    navigate("/teacher-dashboard"); // Instantly navigate to dashboard
+    navigate("/children-info"); // Instantly navigate to dashboard
   };
 
   return (

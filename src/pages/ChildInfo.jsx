@@ -13,11 +13,18 @@ const ChildInfo = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [residence, setResidence] = useState("");
 
-  // Check-In States
+  // Check-In & Check-Out States
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [selectedChild, setSelectedChild] = useState(null);
   const [cardNumber, setCardNumber] = useState("");
+  const [checkOutCardNumber, setCheckOutCardNumber] = useState("");
+
+  // Event Info States
+  const [eventName, setEventName] = useState("");
+  const [eventDate, setEventDate] = useState("");
+  const [eventLocation, setEventLocation] = useState("");
+  const [eventEndDate, setEventEndDate] = useState("");
 
   // Handlers
   const handleAddChild = (e) => {
@@ -40,6 +47,17 @@ const ChildInfo = () => {
   const handleCheckIn = () => {
     console.log("Checking in:", selectedChild.name, "Card:", cardNumber);
     // Send check-in data to backend API
+  };
+
+  const handleCheckOut = () => {
+    console.log("Checking out child with Card Number:", checkOutCardNumber);
+    // Send check-out data to backend API
+  };
+
+  const handleAddEvent = (e) => {
+    e.preventDefault();
+    console.log("Adding Event:", { eventName, eventDate, eventLocation, eventEndDate });
+    // Send event data to backend API
   };
 
   return (
@@ -103,6 +121,18 @@ const ChildInfo = () => {
         )}
       </section>
 
+      {/* Check-Out Section */}
+      <section className="check-out">
+        <h3>Check-Out</h3>
+        <input
+          type="text"
+          placeholder="Enter Card Number"
+          value={checkOutCardNumber}
+          onChange={(e) => setCheckOutCardNumber(e.target.value)}
+        />
+        <button onClick={handleCheckOut}>Check Out</button>
+      </section>
+
       {/* Summary Section */}
       <section className="summary">
         <h3>Summary</h3>
@@ -127,6 +157,18 @@ const ChildInfo = () => {
           <li>Michael Adams - Parent: Sarah Adams</li>
           <li>Lucy Brown - Parent: David Brown</li>
         </ul>
+      </section>
+
+      {/* Add New Event Section */}
+      <section className="add-event">
+        <h3>Add Event</h3>
+        <form onSubmit={handleAddEvent}>
+          <input type="text" placeholder="Event Name" value={eventName} onChange={(e) => setEventName(e.target.value)} required />
+          <input type="date" placeholder="Event Date" value={eventDate} onChange={(e) => setEventDate(e.target.value)} required />
+          <input type="text" placeholder="Event Location" value={eventLocation} onChange={(e) => setEventLocation(e.target.value)} required />
+          <input type="date" placeholder="End Date" value={eventEndDate} onChange={(e) => setEventEndDate(e.target.value)} required />
+          <button type="submit">Add Event</button>
+        </form>
       </section>
     </div>
   );
