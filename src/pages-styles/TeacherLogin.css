@@ -1,5 +1,5 @@
 /* Center the login container */
-.login-container {
+.teacher-login-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,7 +9,7 @@
 }
 
 /* Login card styling */
-.login-card {
+.teacher-login-card {
   background: white;
   padding: 40px;
   border-radius: 12px;
@@ -20,12 +20,12 @@
 }
 
 /* Form styling */
-.login-card h2 {
+.teacher-login-card h2 {
   margin-bottom: 20px;
   color: #333;
 }
 
-.login-card input {
+.teacher-login-card input {
   width: 100%;
   padding: 12px;
   margin: 10px 0;
@@ -34,7 +34,8 @@
   font-size: 16px;
 }
 
-.login-card button {
+/* Button Styling */
+.teacher-login-card button {
   width: 100%;
   padding: 12px;
   background: #ff8a00;
@@ -42,17 +43,24 @@
   border: none;
   border-radius: 6px;
   font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.login-card button:hover {
+.teacher-login-card button:hover {
   background: #e52e71;
+  transform: scale(1.05);
+}
+
+.teacher-login-card button:active {
+  transform: scale(0.95);
 }
 
 /* Responsive Design */
 @media screen and (max-width: 480px) {
-  .login-card {
+  .teacher-login-card {
     padding: 30px;
     max-width: 320px;
   }

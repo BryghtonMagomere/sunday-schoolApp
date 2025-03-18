@@ -1,28 +1,53 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "../pages-styles/ChildLogin.css"; // ✅ Import CSS
+import { useState, useContext } from "react";
+import AuthContext from "../context/AuthContext";
+import "../pages-styles/ChildLogin.css";
 
 const ChildLogin = () => {
-  const navigate = useNavigate();
-  const [username, setUsername] = useState("");
+  const { login } = useContext(AuthContext);
+  const [name, setName] = useState("");
+  const [childClass, setChildClass] = useState(""); // ✅ Renamed for clarity
+  const [error, setError] = useState("");
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+    setError("");
 
-    // In the future, we will verify the username from the database before navigating
-    navigate(`/child-dashboard?username=${username}`); // Redirect with username
+    try {
+      const response = await fetch("http://localhost:5000/api/children/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, class: childClass }), // ✅ Corrected key
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        login("child", data);
+      } else {
+        setError(data.message);
+      }
+    } catch {
+      setError("Server error. Try again later.");
+    }
   };
 
   return (
     <div className="child-login-container">
       <div className="child-login-card">
         <h2>Child Login</h2>
+        {error && <p className="error">{error}</p>}
         <form onSubmit={handleLogin}>
           <input
             type="text"
-            placeholder="Enter Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+          <input
+            type="text"
+            placeholder="Class"
+            value={childClass}
+            onChange={(e) => setChildClass(e.target.value)}
             required
           />
           <button type="submit">Login</button>

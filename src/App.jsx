@@ -1,23 +1,23 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import LandingPage from "./components/LandingPage";
-import { AuthProvider } from "./context/AuthProvider";
+import { AuthProvider } from "./context/AuthContext"; // Ensure this import is correct
 import RoleSelection from "./components/RoleSelection";
 import TeacherLogin from "./pages/TeacherLogin";
-import ParentLogin from "./pages/ParentLogin"; // ✅ Parent Login Import
-import ChildLogin from "./pages/ChildLogin"; // ✅ Child Login Import
+import ParentLogin from "./pages/ParentLogin";
+import ChildLogin from "./pages/ChildLogin";
 import TeacherDashboard from "./components/TeacherDashboard";
-import ChildDashboard from "./components/ChildDashboard"; // ✅ Import Child Dashboard
-import ParentDashboard from "./components/ParentDashboard"; // ✅ Import Parent Dashboard
-import ChildInfo from "./pages/ChildInfo"; 
+import ChildDashboard from "./components/ChildDashboard";
+import ParentDashboard from "./components/ParentDashboard";
+import ChildInfo from "./pages/ChildInfo";
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
+    <Router>
+      <AuthProvider> {/* Ensure AuthProvider is wrapped inside Router */}
         <MainApp />
-      </Router>
-    </AuthProvider>
+      </AuthProvider>
+    </Router>
   );
 }
 
@@ -28,12 +28,13 @@ function MainApp() {
   return (
     <>
       {!hideNavbarPages.includes(location.pathname) && <Navbar />}
+
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/role-selection" element={<RoleSelection />} />
         <Route path="/login/teacher" element={<TeacherLogin />} />
-        <Route path="/login/parent" element={<ParentLogin />} /> {/* ✅ Parent Login Route */}
-        <Route path="/login/child" element={<ChildLogin />} />   {/* ✅ Child Login Route */}
+        <Route path="/login/parent" element={<ParentLogin />} />
+        <Route path="/login/child" element={<ChildLogin />} />
         <Route path="/teacher-dashboard" element={<TeacherDashboard />} />
         <Route path="/child-dashboard" element={<ChildDashboard />} />
         <Route path="/parent-dashboard" element={<ParentDashboard />} />

@@ -1,36 +1,53 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "../pages-styles/ParentLogin.css"; // Ensure you have this CSS file
+import { useState, useContext } from "react";
+import AuthContext from "../context/AuthContext";
+import "../pages-styles/ParentLogin.css";
 
 const ParentLogin = () => {
-  const [parentName, setParentName] = useState("");
+  const { login } = useContext(AuthContext);
+  const [idNumber, setIdNumber] = useState("");
+  const [phone, setPhone] = useState("");
   const [error, setError] = useState("");
-  const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    if (!parentName.trim()) {
-      setError("Please enter your name.");
-      return;
+    setError("");
+
+    try {
+      const response = await fetch("http://localhost:5000/api/parents/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id_number: idNumber, phone_number: phone }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        login("parent", data);
+      } else {
+        setError(data.message);
+      }
+    } catch {
+      setError("Server error. Try again later.");
     }
-
-    // Store the name temporarily (this will be removed once database connection is added)
-    localStorage.setItem("parentName", parentName);
-
-    navigate("/parent-dashboard"); // Redirect to Parent Dashboard
   };
 
   return (
     <div className="parent-login-container">
       <div className="parent-login-card">
         <h2>Parent Login</h2>
-        {error && <p className="error-message">{error}</p>}
+        {error && <p className="error">{error}</p>}
         <form onSubmit={handleLogin}>
           <input
             type="text"
-            placeholder="Enter Your Name"
-            value={parentName}
-            onChange={(e) => setParentName(e.target.value)}
+            placeholder="ID Number"
+            value={idNumber}
+            onChange={(e) => setIdNumber(e.target.value)}
+            required
+          />
+          <input
+            type="text"
+            placeholder="Phone Number"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
             required
           />
           <button type="submit">Login</button>
